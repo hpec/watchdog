@@ -62,6 +62,7 @@ app.get('/apps/:id', function(req, res) {
             'email': app.email,
             'interval': app.interval + "ms",
             'status': app.status,
+            'last_seen': app.timestamp,
         }));
     });
 });
