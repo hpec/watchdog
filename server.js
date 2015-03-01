@@ -14,6 +14,9 @@ var mongoose = require('mongoose');
 
 var app = express();
 app.use(bodyParser.json());
+app.set('port', (process.env.PORT || 3000));
+app.use(express.static(__dirname + '/public'));
+
 
 db_path = process.env['db_path'] || 'mongodb://localhost/test';
 
@@ -80,5 +83,6 @@ app.post('/apps/poke', function(req, res) {
 });
 
 
-app.listen(80);
-console.log('Listening on port 80...');
+app.listen(app.get('port'), function() {
+  console.log("Node app is running at localhost:" + app.get('port'));
+});
