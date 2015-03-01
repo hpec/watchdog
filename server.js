@@ -22,7 +22,13 @@ db_path = process.env['db_path'] || 'mongodb://localhost/test';
 
 mongoose.connect(db_path);
 
-var App = mongoose.model('App', { name: String, status: String, interval: Number, timestamp: Date });
+var App = mongoose.model('App', { 
+    name: String, 
+    email: String,
+    interval: Number, 
+    status: String, 
+    timestamp: Date 
+});
 
 app.get('/', function(req, res) {
     res.send("It works!!\n");
@@ -53,6 +59,8 @@ app.get('/apps/:id', function(req, res) {
         res.send(JSON.stringify({
             'app_id': app._id,
             'name': app.name,
+            'email': app.email,
+            'interval': app.interval + "ms",
             'status': app.status,
         }));
     });
