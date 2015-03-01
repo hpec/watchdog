@@ -1,0 +1,6 @@
+{
+  "name": "Watchdog",
+  "description": "A nodejs based watchdog service",
+  "repository": "https://github.com/hpec/watchdog",
+  "keywords": ["node", "express", "static"]
+}
